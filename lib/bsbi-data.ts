@@ -1010,7 +1010,7 @@ export function calculate(input: CalcInput): CalcOutput {
       notes.push(pw.reason);
     }
 
-    if (program.isArtProgram && pathway === "direct-3yr") {
+    if ((program as BachelorProgram).isArtProgram && pathway === "direct-3yr") {
       notes.push("Art program: portfolio (5 works) + 500-word statement required for direct entry");
     }
   } else {
