@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 
 export default function DashboardPage() {
@@ -72,22 +73,29 @@ export default function DashboardPage() {
       </header>
 
       <main className="max-w-6xl mx-auto px-6 py-12">
-        <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200 text-center">
+        <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-200">
           <h2 className="text-2xl font-bold text-bsbi-dark mb-2">
             Welcome, {profile?.full_name?.split(" ")[0] || "Advisor"} 👋
           </h2>
-          <p className="text-gray-600 mb-6">
-            Tools and resources will appear here soon.
+          <p className="text-gray-600 mb-8">
+            Tools and resources for BSBI advisors and agents.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto mt-8">
-            <div className="border border-dashed border-gray-300 rounded-lg p-8 text-gray-400">
-              <div className="text-3xl mb-2">🎯</div>
-              <div className="font-semibold">Eligibility Calculator</div>
-              <div className="text-xs mt-1">Coming soon</div>
-            </div>
-            <div className="border border-dashed border-gray-300 rounded-lg p-8 text-gray-400">
-              <div className="text-3xl mb-2">📄</div>
-              <div className="font-semibold">Offer Sheet Generator</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
+            <Link
+              href="/dashboard/calculator"
+              className="block border border-gray-200 rounded-lg p-8 text-center hover:border-bsbi-blue hover:shadow-md transition group"
+            >
+              <div className="text-4xl mb-3">🎯</div>
+              <div className="font-bold text-bsbi-dark group-hover:text-bsbi-blue">
+                Eligibility Calculator
+              </div>
+              <div className="text-xs text-gray-500 mt-1">
+                Calculate pathway, scholarship, and tuition
+              </div>
+            </Link>
+            <div className="border border-dashed border-gray-300 rounded-lg p-8 text-center text-gray-400">
+              <div className="text-4xl mb-3">📄</div>
+              <div className="font-bold">Offer Sheet Generator</div>
               <div className="text-xs mt-1">Coming soon</div>
             </div>
           </div>
